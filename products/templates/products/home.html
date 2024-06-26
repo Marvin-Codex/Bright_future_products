@@ -1,0 +1,62 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{% block content %}
+{% load static %}
+<div id="top-section" class="jumbotron text-center" style="
+background-image: url('{% static '/images/background1.jpg' %}'); 
+background-size: cover;
+
+">
+    <h1 class="display-4" style="color:black;">Online BF suma products</h1>
+    <p class="lead" style="color:grey;
+    background:white; font-style: italic;">"You order we deliver"</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Shop Now</a>
+</div>
+
+<!-- Sorting Bar -->
+<div id="sorting_bar" class="container sorting-bar">
+    <form method="get" action="" class="form-inline">
+        <div class="form-group">
+            <label for="sort" class="mr-2">Sort by:</label>
+            <select name="sort" id="sort" class="form-control mr-2" onchange="this.form.submit()">
+                <option value="latest" {% if request.GET.sort == 'latest' %}selected{% endif %}>Latest</option>
+                <option value="category" {% if request.GET.sort == 'category' %}selected{% endif %}>Category</option>
+            </select>
+        </div>
+        {% if request.GET.sort == 'category' %}
+        <div class="form-group">
+            <label for="category" class="mr-2">Category:</label>
+            <select name="category" id="category" class="form-control" onchange="this.form.submit()">
+                <option value="" {% if not request.GET.category %}selected{% endif %}>All</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}" {% if request.GET.category == category.id|stringformat:"s" %}selected{% endif %}>{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+    </form>
+</div>
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p id="description" class="card-text">{{ product.description|truncatewords:10|safe }}</p>
+                <p class="card-text" style="
+                color:green;
+                font-weight:bold;">Price: UGX.{{ product.price }}</p>
+                <a href="{% url 'product_detail' product.pk %}" class="btn btn-primary">View Details</a>
+                <a href="{% url 'make_order' product.pk %}" class="btn btn-success">Make Order</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<!-- WhatsApp Floating Icon -->
+<a href="https://wa.me/<256779366796>?text=Hello%20Bright%20Future%20Products" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+{% endblock %}

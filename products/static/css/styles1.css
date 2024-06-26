@@ -1,0 +1,130 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Bold */
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Normal */
+}
+
+.navbar-brand, .nav-link {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500; /* Medium */
+}
+
+
+.navbar-brand img {
+    height: 50px;
+    width: 110px;
+    border-radius: 10px;
+}
+
+.jumbotron {
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.card-body {
+    text-align: center;
+    
+}
+
+.card-body li {
+    font-size: 16px;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-description {
+    white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+    .jumbotron h1 {
+        font-size: 2rem;
+    }
+
+    .jumbotron p {
+        font-size: 1rem;
+    }
+}
+
+.sorting-bar {
+    margin: 20px 0;
+}
+
+#sorting_bar {
+    background-color: rgb(227, 234, 240);
+    border: solid 1px rgb(218, 236, 252);
+    padding: 2px;
+    border-radius: 5px;
+    height: 70px;
+    display: flex;
+    justify-items: center;
+    justify-content: space-around;
+}
+
+.sorting-bar select {
+    width: 200px;
+    padding: 5px;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+}
+
+.whatsapp-float i {
+    margin-top: 16px;
+}
+
+.footer-text {
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+   #sorting_bar {
+    font-size: 12px;
+   }
+
+   #category, #sort {
+    font-size: 12px;
+    width: 160px;
+    color: #999;
+   }
+
+   #footer_container {
+    margin-top: 250px;
+   }
+
+   #description {
+    font-size: 12px;
+    color: #999;
+    
+   }
+
+}

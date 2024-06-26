@@ -1,0 +1,29 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+<h1>Place Order</h1>
+<form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+        <div class="invalid-feedback">Please provide your name.</div>
+    </div>
+    <div class="form-group">
+        <label for="contact">Contact</label>
+        <input type="text" class="form-control" id="contact" name="contact" required>
+        <div class="invalid-feedback">Please provide your contact information.</div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+        <div class="invalid-feedback">Please provide a valid email address.</div>
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" name="quantity" min="1" required>
+        <div class="invalid-feedback">Please provide a quantity.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Order</button>
+</form>
+{% endblock %}
